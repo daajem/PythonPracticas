@@ -1,16 +1,14 @@
 import random
 
-# Recibimos la cantidad de numeros que va a tener nuestro arreglo
-cant = int(input('Ingresa la cantidad de numeros de la lista: '))
+def shuffle(arr):
+    for i in range(len(arr) - 1, 0, -1):
+        j = random.randint(0, i)  # Generamos un índice aleatorio entre 0 e i (ambos inclusive)
+        arr[i], arr[j] = arr[j], arr[i]  # Intercambiamos los elementos en las posiciones i y j
+    return arr
 
-# Creamos una lista con números aleatorios del 1 al 100
-numbers = [random.randrange(1, 100) for _ in range(cant)]
+# Ejemplo de uso
+letters = ['a', 'b', 'c']
+print(f"Original: {letters}")
 
-# Imprimimos el arreglo original
-print("Arreglo original:", numbers)
-
-# Mezclamos el arreglo utilizando random.shuffle()
-random.shuffle(numbers)
-
-# Imprimimos el arreglo mezclado
-print("Arreglo mezclado:", numbers)
+shuffled_letters = shuffle(letters)
+print(f"Shuffle: {shuffled_letters}")
